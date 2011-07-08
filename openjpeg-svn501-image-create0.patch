@@ -1,0 +1,15 @@
+Upstream patch for bug #579548.
+
+
+diff -Naur OpenJPEG_v1_3.orig/libopenjpeg/image.c OpenJPEG_v1_3/libopenjpeg/image.c
+--- OpenJPEG_v1_3.orig/libopenjpeg/image.c	2007-10-18 08:26:11.000000000 -0400
++++ OpenJPEG_v1_3/libopenjpeg/image.c	2010-07-07 12:03:17.971269947 -0400
+@@ -27,7 +27,7 @@
+ #include "opj_includes.h"
+ 
+ opj_image_t* opj_image_create0(void) {
+-	opj_image_t *image = (opj_image_t*)opj_malloc(sizeof(opj_image_t));
++	opj_image_t *image = (opj_image_t*)opj_calloc(1, sizeof(opj_image_t));
+ 	return image;
+ }
+ 

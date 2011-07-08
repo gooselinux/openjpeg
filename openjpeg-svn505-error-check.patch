@@ -1,0 +1,14 @@
+Upstream patch for bug #609385.
+
+
+diff -Naur OpenJPEG_v1_3.orig/libopenjpeg/jp2.c OpenJPEG_v1_3/libopenjpeg/jp2.c
+--- OpenJPEG_v1_3.orig/libopenjpeg/jp2.c	2007-10-18 08:26:11.000000000 -0400
++++ OpenJPEG_v1_3/libopenjpeg/jp2.c	2010-07-07 12:07:51.580269697 -0400
+@@ -561,6 +561,7 @@
+ 	image = j2k_decode(jp2->j2k, cio, cstr_info);
+ 	if(!image) {
+ 		opj_event_msg(cinfo, EVT_ERROR, "Failed to decode J2K image\n");
++		return NULL;
+ 	}
+ 
+ 	/* Set Image Color Space */
